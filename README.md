@@ -25,7 +25,65 @@ c = [[4, 3, 5, 2],            # Unit transportation costs from factories to regi
      [5, 8, 2, 7],
      [4, 5, 3, 6],
      [2, 5, 7, 4],
-     [4, 4, 3, 2]]
+     [4, 4, 3, 2]]          
+```
+
+### Decision Variables
+* x_ij: Amount of product to be transported from factory i to region j (x_ij ≥ 0)
+
+### Objective Function
+The objective is to minimize the total transportation cost:
+
+Min Z = Σ(i) Σ(j) [ c_ij * x_ij ]
+
+### Constraints
+**1. Capacity (Supply) Constraints:**
+The total amount of products sent from each factory to the regions cannot exceed the capacity of that factory.
+* Σ(j) x_ij ≤ a_i   (For each factory i)
+
+**2. Demand Constraints:**
+The required product amount for each region must be fully met.
+* Σ(i) x_ij = b_j   (For each region j)
+
+**3. Non-negativity Constraint:**
+The amount of transported product cannot be negative.
+* x_ij ≥ 0          (For all i and j)
+
+## 📊 Example Output
+
+```text
+Optimal solution found.
+x_1_1: 0.0
+x_1_2: 100.0
+x_1_3: 0.0
+x_1_4: 100.0
+x_2_1: 50.0
+x_2_2: 0.0
+x_2_3: 150.0
+x_2_4: 0.0
+x_3_1: 0.0
+x_3_2: 200.0
+x_3_3: 0.0
+x_3_4: 0.0
+x_4_1: 200.0
+x_4_2: 0.0
+x_4_3: 0.0
+x_4_4: 0.0
+x_5_1: 0.0
+x_5_2: 0.0
+x_5_3: 0.0
+x_5_4: 200.0
+Optimal value: 2850.0
+```
+
+As a result of optimizing the model, the lowest possible transportation cost (Optimal Value) that satisfies all constraints was found to be 2,850.0 units.
+
+## 💻 Installation and Usage
+
+### Requirements
+To run this code, you must have Python installed on your computer and have the following library/license:
+* `gurobipy` (Gurobi interface for Python)
+* A valid Gurobi license (A free license is available for academic use).
 
 ##TURKISH
 # Gurobi-ile-Ulastırma-Transportation-Problemi-Optimizasyonu
